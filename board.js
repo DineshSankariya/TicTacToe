@@ -1,6 +1,10 @@
 letter=0;
 count=1
+var a;
 document.addEventListener("DOMContentLoaded", function(event) { 
+    a=document.querySelector("h1").textContent;
+    a = a.split(" ") 
+    a = a.join("") 
     //do work
     let btn=document.querySelectorAll(".main");
     // let pos=btn.
@@ -17,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
   function hello(){
-    var a=document.querySelector("h1").textContent;
-    console.log(a.trim()[letter]);
+    
+    console.log(a[letter]);
     letter++;  
   }
 
@@ -26,10 +30,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function play(a){
       
     if(count<=9){
-        if(count%2==0){
-            document.getElementById(a.id).innerHTML="O";
-        }else{
+        if(count%2!=0){
             document.getElementById(a.id).innerHTML="X";
+        }else{
+            document.getElementById(a.id).innerHTML="O";
         }
         
         // document.getElementById(a.id).style.color = "blueviolet";
@@ -47,13 +51,21 @@ function play(a){
                 // alert(b+" won the game");
                 if(b=="X"){
                     alert("Player-1 won the game")
+                    // document.getElementsByTagName("h1").innerHTML="Player-1 won the game";
                 }else{
                     alert("Player-2 won the game")
+                    // document.getElementsByTagName("h1").innerHTML="Player-2 won the game";
                 }
                 setTimeout(() => {
                     // alert("Should You want to reset the game")
-                    reset();    
-                }, 2000);
+                    // document.getElementsByTagName("h1").innerHTML="Player-2 won the game";
+                    alert("Restart");
+                        setTimeout(() => {
+    
+                            reset();  
+                        }, 1000);
+                          
+                }, 1600);
                 
             }
         }, 210);
@@ -62,8 +74,10 @@ function play(a){
 
     }
     else{
-        alert("Match Draw");
-        reset();
+        alert("Match Draw\n Play Again");
+        reset();                
+        // alert("Restart");
+       
     }   
         
 }
@@ -109,6 +123,7 @@ function check_hor() {
         for(var i=1;i<=3;i++){
             document.getElementById("main_pos-"+i).style.backgroundColor="black";
             document.getElementById("main_pos-"+i).style.color="white";
+            // document.getElementById("main_pos-"+i).style.borderColor="black";
         }
         return r1_o;
     }   
@@ -116,6 +131,7 @@ function check_hor() {
         for(var i=4;i<=6;i++){
             document.getElementById("main_pos-"+i).style.backgroundColor="black";
             document.getElementById("main_pos-"+i).style.color="white";
+            // document.getElementById("main_pos-"+i).style.borderColor="black";
         }
         return r2_o;
     }   
@@ -123,6 +139,7 @@ function check_hor() {
         for(var i=7;i<=9;i++){
             document.getElementById("main_pos-"+i).style.backgroundColor="black";
             document.getElementById("main_pos-"+i).style.color="white";
+            // document.getElementById("main_pos-"+i).style.borderColor="black";
         }
         return r3_o;
     }   
@@ -148,6 +165,7 @@ function check_ver() {
         for(var i=1;i<=7;i=i+3){
             document.getElementById("main_pos-"+i).style.backgroundColor="black";
             document.getElementById("main_pos-"+i).style.color="white";
+            // document.getElementById("main_pos-"+i).style.borderColor="black";
         }
         return r1_o;
     }   
@@ -155,6 +173,7 @@ function check_ver() {
         for(var i=2;i<=8;i=i+3){
             document.getElementById("main_pos-"+i).style.backgroundColor="black";
             document.getElementById("main_pos-"+i).style.color="white";
+            // document.getElementById("main_pos-"+i).style.borderColor="black";
         }
         return r2_o;
     }   
@@ -162,6 +181,7 @@ function check_ver() {
         for(var i=3;i<=9;i=i+3){
             document.getElementById("main_pos-"+i).style.backgroundColor="black";
             document.getElementById("main_pos-"+i).style.color="white";
+            // document.getElementById("main_pos-"+i).style.borderColor="black";
         }
         return r3_o;
     }   
@@ -184,6 +204,7 @@ function check_diag(){
     for(var i=1;i<=9;i=i+4){
         document.getElementById("main_pos-"+i).style.backgroundColor="black";
         document.getElementById("main_pos-"+i).style.color="white";
+        // document.getElementById("main_pos-"+i).style.borderColor="black";
     }
     return r1_o;
 }   
@@ -191,6 +212,7 @@ function check_diag(){
         for(var i=3;i<=7;i=i+2){
             document.getElementById("main_pos-"+i).style.backgroundColor="black";
             document.getElementById("main_pos-"+i).style.color="white";
+            // document.getElementById("main_pos-"+i).style.borderColor="black";
         }
         return r2_o;
     }   
@@ -203,6 +225,7 @@ function reset(){
         document.getElementById("main_pos-"+i).innerHTML="";
         document.getElementById("main_pos-"+i).style.backgroundColor="transparent";
         document.getElementById("main_pos-"+i).style.color="black";
+        // document.getElementById("main_pos-"+i).style.borderColor="rgb(250, 250, 250)";
     }
     count=1;
 
