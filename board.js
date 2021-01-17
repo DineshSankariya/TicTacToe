@@ -1,5 +1,30 @@
+letter=0;
 count=1
+document.addEventListener("DOMContentLoaded", function(event) { 
+    //do work
+    let btn=document.querySelectorAll(".main");
+    // let pos=btn.
+    console.log(btn);
+    console.log(btn[0].children.length);
+    for(var i=1;i<btn[0].children.length;i++){
+        child=btn[0].children[i];
+        // console.log(child.id);
+        document.getElementById(child.id).addEventListener("click",hello);
+    }
+    // btn.forEach(function(e) {
+//    
+    // })
+  });
+
+  function hello(){
+    var a=document.querySelector("h1").textContent;
+    console.log(a.trim()[letter]);
+    letter++;  
+  }
+
+
 function play(a){
+      
     if(count<=9){
         if(count%2==0){
             document.getElementById(a.id).innerHTML="O";
@@ -19,7 +44,12 @@ function play(a){
         setTimeout(() => {
             
             if(b!=null){
-                alert(b+" won the game");
+                // alert(b+" won the game");
+                if(b=="X"){
+                    alert("Player-1 won the game")
+                }else{
+                    alert("Player-2 won the game")
+                }
                 setTimeout(() => {
                     // alert("Should You want to reset the game")
                     reset();    
@@ -27,13 +57,15 @@ function play(a){
                 
             }
         }, 210);
+       
         count++;
 
     }
     else{
         alert("Match Draw");
         reset();
-    }          
+    }   
+        
 }
 
 
