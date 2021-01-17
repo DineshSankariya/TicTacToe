@@ -5,19 +5,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
     a=document.querySelector("h1").textContent;
     a = a.split(" ") 
     a = a.join("") 
-    //do work
+    
     let btn=document.querySelectorAll(".main");
-    // let pos=btn.
+    
     console.log(btn);
     console.log(btn[0].children.length);
     for(var i=1;i<btn[0].children.length;i++){
-        child=btn[0].children[i];
-        // console.log(child.id);
+        child=btn[0].children[i];        
         document.getElementById(child.id).addEventListener("click",hello);
     }
-    // btn.forEach(function(e) {
-//    
-    // })
+
+
+
   });
 
   function hello(){
@@ -36,8 +35,8 @@ function play(a){
             document.getElementById(a.id).innerHTML="O";
         }
         
-        // document.getElementById(a.id).style.color = "blueviolet";
-        // document.getElementById(a.id).style.transform = "1s all";
+        
+        
         document.getElementById(a.id).style.transition = "0.8s";
         document.getElementById(a.id).style.transitionProperty = "color";
         setTimeout(() => {
@@ -48,17 +47,17 @@ function play(a){
         setTimeout(() => {
             
             if(b!=null){
-                // alert(b+" won the game");
+                
                 if(b=="X"){
                     alert("Player-1 won the game")
-                    // document.getElementsByTagName("h1").innerHTML="Player-1 won the game";
+                    
                 }else{
                     alert("Player-2 won the game")
-                    // document.getElementsByTagName("h1").innerHTML="Player-2 won the game";
+                    
                 }
                 setTimeout(() => {
-                    // alert("Should You want to reset the game")
-                    // document.getElementsByTagName("h1").innerHTML="Player-2 won the game";
+                    
+                    
                     alert("Restart");
                         setTimeout(() => {
     
@@ -76,7 +75,7 @@ function play(a){
     else{
         alert("Match Draw\n Play Again");
         reset();                
-        // alert("Restart");
+        
        
     }   
         
