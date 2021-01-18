@@ -40,12 +40,12 @@ function play(a){
         }, 10);
         
         b=check_winner();
-        setTimeout(() => {
-               if(b == null && count>=9){
-                    alert("Match Draw\n Play Again");
-                    reset();                
-                }
-        }, 1700);
+        // setTimeout(() => {
+            //    if(b == null && count>=9){
+                    // alert("Match Draw\n Play Again");
+                    // reset();                
+                // }
+        // }, 1700);
         setTimeout(() => {
             
             if(b!=null){
@@ -74,7 +74,6 @@ function play(a){
             
         }, 210);       
         count++;
-     
      
      
      
