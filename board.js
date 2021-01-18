@@ -8,27 +8,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
     let btn=document.querySelectorAll(".main");
     
-    console.log(btn);
-    console.log(btn[0].children.length);
+    // console.log(btn);
+    // console.log(btn[0].children.length);
     for(var i=1;i<btn[0].children.length;i++){
         child=btn[0].children[i];        
-        document.getElementById(child.id).addEventListener("click",hello);
+        
     }
 
 
 
   });
 
-  function hello(){
-    
-    console.log(a[letter]);
-    letter++;  
-  }
 
 
 function play(a){
       
     if(count<=9){
+        
         if(count%2!=0){
             document.getElementById(a.id).innerHTML="X";
         }else{
@@ -45,6 +41,12 @@ function play(a){
         
         b=check_winner();
         setTimeout(() => {
+               if(b == null && count>=9){
+                    alert("Match Draw\n Play Again");
+                    reset();                
+                }
+        }, 1700);
+        setTimeout(() => {
             
             if(b!=null){
                 
@@ -56,8 +58,7 @@ function play(a){
                     
                 }
                 setTimeout(() => {
-                    
-                    
+                                        
                     alert("Restart");
                         setTimeout(() => {
     
@@ -67,9 +68,16 @@ function play(a){
                 }, 1600);
                 
             }
-        }, 210);
-       
+            
+            
+            
+            
+        }, 210);       
         count++;
+     
+     
+     
+     
 
     }
     else{
