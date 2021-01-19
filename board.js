@@ -1,28 +1,9 @@
-letter=0;
-count=1
-var a;
-document.addEventListener("DOMContentLoaded", function(event) { 
-    a=document.querySelector("h1").textContent;
-    a = a.split(" ") 
-    a = a.join("") 
-    
-    let btn=document.querySelectorAll(".main");
-    
-    // console.log(btn);
-    // console.log(btn[0].children.length);
-    for(var i=1;i<btn[0].children.length;i++){
-        child=btn[0].children[i];        
-        
-    }
-
-
-
-  });
-
-
+var letter=0;
+var count=1;
+var b=null;
 
 function play(a){
-      
+    // var b=null; 
     if(count<=9){
         
         if(count%2!=0){
@@ -32,60 +13,52 @@ function play(a){
         }
         
         
-        
+      
         document.getElementById(a.id).style.transition = "0.8s";
-        document.getElementById(a.id).style.transitionProperty = "color";
-        setTimeout(() => {
-            document.getElementById(a.id).style.color = "white";
-        }, 10);
+        document.getElementById(a.id).style.transitionProperty = "color";        
+        document.getElementById(a.id).style.color = "white";
+           
+       
         
-        b=check_winner();
-        // setTimeout(() => {
-            //    if(b == null && count>=9){
-                    // alert("Match Draw\n Play Again");
-                    // reset();                
-                // }
-        // }, 1700);
-        setTimeout(() => {
+        b=check_winner(); 
+        console.log("b = "+b+" count = "+count);
             
-            if(b!=null){
                 
+           
+            if(b!=null){        
                 if(b=="X"){
-                    alert("Player-1 won the game")
+                    setTimeout(() => {
+                        alert("Player-1 won the game");
+                        setTimeout(() => {
+                            reset();
+                        }, 700);
+                    }, 1000);
+                   
                     
                 }else{
-                    alert("Player-2 won the game")
-                    
-                }
-                setTimeout(() => {
-                                        
-                    alert("Restart");
+                    setTimeout(() => {
+                        alert("Player-2 won the game");
                         setTimeout(() => {
-    
-                            reset();  
-                        }, 1000);
-                          
-                }, 1600);
+                            reset();
+                        }, 700);
+                        
+                    }, 1000);                                       
+                }                                                                                                                                 
                 
             }
-            
-            
-            
-            
-        }, 210);       
-        count++;
-     
-     
-     
-
-    }
-    else{
-        alert("Match Draw\n Play Again");
-        reset();                
+            else if(count>=9 && b == null){
+                setTimeout(() => {
+                    alert("Match Draw\n Play Again");
+                    setTimeout(() => {
+                        reset();
+                    }, 700);
+                }, 1000);
+                
+                
+            }
+            count=count+1;
         
-       
-    }   
-        
+}
 }
 
 
@@ -107,6 +80,8 @@ function check_winner(){
     }else if(d!=null){
         return d;
     }
+
+    return null;
 
 }
 
